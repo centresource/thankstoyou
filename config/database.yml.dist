@@ -1,0 +1,19 @@
+development:
+  adapter: postgresql
+  database: thanks-to-you_development
+  username:
+  password:
+  host: localhost
+
+test:
+  adapter: postgresql
+  database: thanks-to-you_test
+  username:
+  password:
+  host: localhost
+
+production:
+  adapter: postgresql
+  database: thanks-to-you_production
+  username:
+  password:
