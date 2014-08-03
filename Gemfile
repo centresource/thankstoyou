@@ -8,8 +8,6 @@ gem 'selectivizr-rails'
 gem 'respond-rails'
 gem 'devise'
 gem 'activeadmin', :github => 'gregbell/active_admin'
-gem 'lograge'
-gem 'whenever', :require => false
 gem 'bourbon'
 gem 'neat'
 gem 'sass-rails', '~> 4.0.3'

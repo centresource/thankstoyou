@@ -1,19 +1,19 @@
 development:
   adapter: postgresql
-  database: thanks-to-you_development
+  database: thankstoyou_development
   username:
   password:
   host: localhost
 
 test:
   adapter: postgresql
-  database: thanks-to-you_test
+  database: thankstoyou_test
   username:
   password:
   host: localhost
 
 production:
   adapter: postgresql
-  database: thanks-to-you_production
+  database: thankstoyou_production
   username:
   password:
