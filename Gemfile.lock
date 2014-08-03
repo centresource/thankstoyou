@@ -50,6 +50,10 @@ GEM
     arel (5.0.1.20140414130214)
     awesome_print (1.2.0)
     bcrypt (3.1.7)
+    bitters (0.10.0)
+      bourbon (>= 3.2)
+      sass (>= 3.2)
+      thor
     bourbon (3.2.3)
       sass (~> 3.2)
       thor
@@ -327,6 +331,7 @@ PLATFORMS
 DEPENDENCIES
   activeadmin!
   awesome_print
+  bitters
   bourbon
   capybara-webkit
   coffee-rails (~> 4.0.0)

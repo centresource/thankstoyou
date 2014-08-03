@@ -8,7 +8,7 @@
 
 /* Bourbon & Neat
  * -----------------------------------------------------------------------------*/
-@import "bourbon/dist/bourbon";
+@import "bourbon";
 @import "neat-helpers";
 @import "base/grid-settings";
 @import "neat";
@@ -18,7 +18,6 @@
 /* Base
  * -----------------------------------------------------------------------------*/
 @import "base/variables";
-@import "base/extends/base";
 @import "base/mixins/base";
 @import "base/utilities";
 @import "base/typography";
