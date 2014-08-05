@@ -1,9 +1,6 @@
 @mixin flash($color) {
   background: $color;
   color: darken($color, 60);
-  font-weight: bold;
-  margin-bottom: $base-line-height / 2;
-  padding: $base-line-height / 2;
 
   a {
     color: darken($color, 70);
@@ -12,4 +9,30 @@
       color: darken($color, 90);
     }
   }
+}
+
+%flash-base {
+  font-weight: bold;
+  margin-bottom: $base-spacing / 2;
+  padding: $base-spacing / 2;
+}
+
+%flash-alert {
+  @extend %flash-base;
+  @include flash($alert-color);
+}
+
+%flash-error {
+  @extend %flash-base;
+  @include flash($error-color);
+}
+
+%flash-notice {
+  @extend %flash-base;
+  @include flash($notice-color);
+}
+
+%flash-success {
+  @extend %flash-base;
+  @include flash($success-color);
 }

@@ -21,5 +21,8 @@ module Thankstoyou
     # config.i18n.default_locale = :de
 
     config.assets.initialize_on_precompile = false
+
+    config.assets.paths += Dir["#{Rails.root}/vendor/assets/*"].sort_by { |dir| -dir.size }
+
   end
 end
