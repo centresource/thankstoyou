@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 ruby '2.0.0'
 
 gem 'rails', '4.1.4'
+gem 'dotenv-rails', :groups => [:development, :test]
 gem 'pg'
 gem 'jquery-rails'
 gem 'selectivizr-rails'
@@ -20,6 +21,10 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
+
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+gem 'omniauth-google-oauth2'
 
 group :production do
   gem "heroku_rails_deflate"

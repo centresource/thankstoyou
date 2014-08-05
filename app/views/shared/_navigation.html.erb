@@ -1,0 +1,94 @@
+<header class="navigation">
+  <div class="navigation-wrapper">
+    <a href="" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
+    <div class="nav">
+      <ul id="navigation-menu">
+        <% if user_signed_in? %>
+          <li class="nav-link">
+            <div class="logo">
+              <img src="<%= current_user.image %>" alt="">
+            </div>
+          </li>
+          <li class="nav-link">
+              <%= current_user.name %>
+          </li>
+
+      <div class="modal">
+        <label for="modal-2">
+          <div class="sign-up">Add Your Thanks </div>
+        </label>
+        <input class="modal-state" id="modal-2" type="checkbox" />
+        <div class="modal-window">
+          <div class="modal-inner">
+            <label class="modal-close" for="modal-2"></label>
+            <label>Thanks to you, Steve, <%= text_field(@post, :title, :placeholder => "my life has been forever changed.") %></label>
+            <label><%= text_area(@post, :body, :size => "60x10", :placeholder => "Tell more about how Steve has been a part of your life story.") %></label>
+            <a href="#" class="btn">Add a photo</a>
+            <a href="#" class="btn">Add a video</a>
+            <hr/>
+            Steve joined my life story in <%= select_year(Date.today, start_year: 1948, end_year: Date.today.year, :field_name => :met_when) %> when <%= text_area @user, :met_how, :size => "60x3", :placeholder => "Steve and I worked together in Seattle" %>
+            <%= submit_tag "Add Your Thanks" %>
+          </div>
+        </div>
+      </div>
+      <% end %>
+
+      <!-- <li class="nav-link"><a href="javascript:void(0)">Products</a></li>
+        <li class="nav-link"><a href="javascript:void(0)">About Us</a></li>
+        <li class="nav-link"><a href="javascript:void(0)">Contact</a></li>
+        <li class="nav-link more"><a href="javascript:void(0)">More</a>
+          <ul class="submenu">
+            <li><a href="javascript:void(0)">Submenu Item</a></li>
+            <li><a href="javascript:void(0)">Another Item</a></li>
+            <li class="more"><a href="javascript:void(0)">Item with submenu</a>
+              <ul class="submenu">
+                <li><a href="javascript:void(0)">Sub-submenu Item</a></li>
+                <li><a href="javascript:void(0)">Another Item</a></li>
+              </ul>
+            </li>
+            <li class="more"><a href="javascript:void(0)">Another submenu</a>
+              <ul class="submenu">
+                <li><a href="javascript:void(0)">Sub-submenu</a></li>
+                <li><a href="javascript:void(0)">An Item</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li> -->
+      </ul>
+    </div>
+    <div class="navigation-tools">
+      <!-- <div class="search-bar">
+        <div class="search-and-submit">
+          <input type="search" placeholder="Enter Search" />
+          <button type="submit">
+            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/search-icon.png" alt="">
+          </button>
+        </div>
+      </div> -->
+      <!-- <a href="javascript:void(0)" class="sign-up">Sign Up</a> -->
+
+      <% if !user_signed_in? %>
+
+      <div class="modal">
+        <label for="modal-1">
+          <div href="javascript:void(0)" class="sign-up">Get Started</div>
+        </label>
+        <input class="modal-state" id="modal-1" type="checkbox" />
+        <div class="modal-window">
+          <div class="modal-inner">
+            <label class="modal-close" for="modal-1"></label>
+            <h2>Sign Up</h2>
+            <p class="intro">Create an account, and add a video, photo, or text about how Steve has affected your life story.</p>
+            <hr/>
+            <p>Create an account / Sign in: <%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter) %> | <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %> | <%= link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2) %></p>
+            <p>Don't have one of these? <a href="#">Create an account manually</a></p>
+          </div>
+        </div>
+      </div>
+      <% else %>
+        <%= link_to("Log out", :destroy_user_session , :class => "sign-up", :method => "delete") %>
+      <% end %>
+
+    </div>
+  </div>
+</header>

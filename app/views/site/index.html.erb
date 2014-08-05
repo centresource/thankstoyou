@@ -1,42 +1,6 @@
 <h1>Thanks to you, Steve...</h1>
 <p>Steve has meant so much to so many people in so many different ways. This is a site to collect all the ways that Steve has been a part of other people's life stories.</p>
 
-<div class="modal">
-  <label for="modal-1">
-    <div class="btn js-btn">Create Account / Sign in </div>
-  </label>
-  <input class="modal-state" id="modal-1" type="checkbox" />
-  <div class="modal-window">
-    <div class="modal-inner">
-      <label class="modal-close" for="modal-1"></label>
-      <h2>Create Account / Sign in </h2>
-      <p class="intro">Create an account, and add a video, photo, or text about how Steve has affected your life story.</p>
-      <hr/>
-      <p>Create an account / Sign in: <a href="#" class="btn">Twitter</a> <a href="#" class="btn">Facebook</a> <a href="#" class="btn">Google</a></p>
-      <p>Don't have one of these? <a href="#">Create an account manually</a></p>
-    </div>
-  </div>
-</div>
-
-<div class="modal">
-  <label for="modal-2">
-    <div class="btn js-btn">Add Your Thanks </div>
-  </label>
-  <input class="modal-state" id="modal-2" type="checkbox" />
-  <div class="modal-window">
-    <div class="modal-inner">
-      <label class="modal-close" for="modal-2"></label>
-      <label>Thanks to you, Steve, <%= text_field(@post, :title, :placeholder => "my life has been forever changed.") %></label>
-      <label><%= text_area(@post, :body, :size => "60x10", :placeholder => "Tell more about how Steve has been a part of your life story.") %></label>
-      <a href="#" class="btn">Add a photo</a>
-      <a href="#" class="btn">Add a video</a>
-      <hr/>
-      Steve joined my life story in <%= select_year(Date.today, start_year: 1948, end_year: Date.today.year, :field_name => :met_when) %> when <%= text_area @user, :met_how, :size => "60x3", :placeholder => "Steve and I worked together in Seattle" %>
-      <%= submit_tag "Add Your Thanks" %>
-    </div>
-  </div>
-</div>
-
 <hr/>
 <section>
   <article>
