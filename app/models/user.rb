@@ -53,13 +53,6 @@ class User < ActiveRecord::Base
     user
   end
 
-  def update(user_params)
-    user = User.where(:email => user_params[:email]).first
-    if user
-      set_flash_message(:notice, :email_already_exists) if is_flashing_format?
-    end
-  end
-
   def email_verified?
     self.email && self.email !~ TEMP_EMAIL_REGEX
   end

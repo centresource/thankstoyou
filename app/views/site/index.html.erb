@@ -2,6 +2,26 @@
 <p>Steve has meant so much to so many people in so many different ways. This is a site to collect all the ways that Steve has been a part of other people's life stories.</p>
 
 <hr/>
+<% if user_signed_in? %>
+  <div class="modal">
+    <label for="modal-2">
+      <div class="btn">Add Your Thanks </div>
+    </label>
+    <input class="modal-state" id="modal-2" type="checkbox" />
+    <div class="modal-window">
+      <div class="modal-inner">
+        <label class="modal-close" for="modal-2"></label>
+        <label>Thanks to you, Steve, <%= text_field(@post, :title, :placeholder => "my life has been forever changed.") %></label>
+        <label><%= text_area(@post, :body, :size => "60x10", :placeholder => "Tell more about how Steve has been a part of your life story.") %></label>
+        <a href="#" class="btn">Add a photo</a>
+        <a href="#" class="btn">Add a video</a>
+        <hr/>
+        Steve joined my life story in <%= select_year(Date.today, start_year: 1948, end_year: Date.today.year, :field_name => :met_when) %> when <%= text_area @user, :met_how, :size => "60x3", :placeholder => "Steve and I worked together in Seattle" %>
+        <%= submit_tag "Add Your Thanks" %>
+      </div>
+    </div>
+  </div>
+<% end %>
 <section>
   <article>
     <header>

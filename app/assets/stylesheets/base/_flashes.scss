@@ -1,15 +1,15 @@
-%flash-alert {
-  @include flash($alert-color);
+.alert-error {
+  @extend %flash-error;
 }
 
-%flash-error {
-  @include flash($error-color);
+.alert {
+  @extend %flash-alert;
 }
 
-%flash-notice {
-  @include flash($notice-color);
+.alert-notice {
+  @extend %flash-notice;
 }
 
-%flash-success {
-  @include flash($success-color);
+.alert-success {
+  @extend %flash-success;
 }

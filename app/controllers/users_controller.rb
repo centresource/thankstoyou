@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :finish_signup, :destroy]
-
   # GET /users/:id.:format
   def show
     # authorize! :read, @user
@@ -35,6 +34,7 @@ class UsersController < ApplicationController
         sign_in(@user, :bypass => true)
         redirect_to :root, notice: 'Your profile was successfully updated.'
       else
+        flash[:error] = "That email already exists. If this is you, please log in with another service and try reconnecting this service."
         @show_errors = true
       end
     end
