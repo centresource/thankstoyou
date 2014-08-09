@@ -1,0 +1,17 @@
+<article>
+  <header>
+    <h3>Thanks to you, Steve, <%= post.title %></h3>
+    <div class="date"><%= post.created_at.strftime('%B %e, %Y') %> &bull; <%= post.created_at.strftime('%l:%M %P') %></div>
+  </header>
+  <% if post.image.url %>
+    <%= image_tag(post.image_url(:faces_thumb)) %>
+  <% end %>
+  <p><%= post.body %></p>
+  <footer>
+    <div class="author">
+      <%= image_tag(post.user.image) %>
+      <%= post.user.name %>
+      <div class="meta">Steve joined my life story in <%= post.user.met_when %> when <%= post.user.met_how %></div>
+    </div>
+  </footer>
+</article>

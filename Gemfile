@@ -26,6 +26,9 @@ gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'omniauth-linkedin'
 gem 'omniauth-google-oauth2'
+gem 'mini_magick'
+gem 'carrierwave'
+gem 'cloudinary'
 
 group :production do
   gem "heroku_rails_deflate"

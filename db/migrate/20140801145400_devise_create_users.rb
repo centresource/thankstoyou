@@ -6,6 +6,11 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :encrypted_password, null: false, default: ""
       t.string :name
       t.string :image
+      t.string :met_when
+      t.string :met_how
+      t.string :location
+      t.float  :longitude
+      t.float  :latitude
 
       ## Recoverable
       t.string   :reset_password_token

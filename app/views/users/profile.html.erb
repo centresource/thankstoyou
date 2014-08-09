@@ -1,0 +1,5 @@
+<%= form_for current_user, :as => 'user', :url => profile_path(current_user), :html => {role: 'form', class: "nifty_form"} do |f| %>
+  Steve joined my life story in <%= f.select :met_when, (Date.new(1948).year)..(Date.today.year), :selected => Time.now.year %> when <%= f.text_area :met_how, :size => "60x3", :placeholder => "Steve and I worked together in Seattle" %>
+
+  <%= f.submit 'Update your Profile', :class => 'btn btn-primary' %>
+<% end -%>

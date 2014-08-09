@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :finish_signup, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :finish_signup, :profile, :destroy]
   # GET /users/:id.:format
   def show
     # authorize! :read, @user
@@ -40,6 +40,23 @@ class UsersController < ApplicationController
     end
   end
 
+  # GET/PATCH /users/:id/finish_signup
+  def profile
+    # authorize! :update, @user
+    if request.patch? && params[:user]
+      if @user.update(profile_params)
+        @user.skip_reconfirmation!
+        sign_in(@user, :bypass => true)
+        redirect_to :root, notice: 'Your profile was successfully updated.'
+      else
+        flash[:error] = "That email already exists. If this is you, please log in with another service and try reconnecting this service."
+        @show_errors = true
+      end
+    else
+      @user = User.find(current_user.id)
+    end
+  end
+
   # DELETE /users/:id.:format
   def destroy
     # authorize! :delete, @user
@@ -52,12 +69,17 @@ class UsersController < ApplicationController
 
   private
     def set_user
-      @user = User.find(params[:id])
+      @user = current_user
     end
 
     def user_params
       accessible = [ :name, :email ] # extend with your own params
       accessible << [ :password, :password_confirmation ] unless params[:user][:password].blank?
+      params.require(:user).permit(accessible)
+    end
+
+    def profile_params
+      accessible = [ :name, :email, :met_when, :met_how ]
       params.require(:user).permit(accessible)
     end
 end

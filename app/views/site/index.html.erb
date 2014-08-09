@@ -11,18 +11,17 @@
     <div class="modal-window">
       <div class="modal-inner">
         <label class="modal-close" for="modal-2"></label>
-        <label>Thanks to you, Steve, <%= text_field(@post, :title, :placeholder => "my life has been forever changed.") %></label>
-        <label><%= text_area(@post, :body, :size => "60x10", :placeholder => "Tell more about how Steve has been a part of your life story.") %></label>
-        <a href="#" class="btn">Add a photo</a>
-        <a href="#" class="btn">Add a video</a>
-        <hr/>
-        Steve joined my life story in <%= select_year(Date.today, start_year: 1948, end_year: Date.today.year, :field_name => :met_when) %> when <%= text_area @user, :met_how, :size => "60x3", :placeholder => "Steve and I worked together in Seattle" %>
-        <%= submit_tag "Add Your Thanks" %>
+        <%= render "posts/form" %>
       </div>
     </div>
   </div>
 <% end %>
 <section>
+
+  <% @posts.each do |post| %>
+    <%= render "posts/post", :post => post %>
+  <% end -%>
+
   <article>
     <header>
       <h3>Thanks to you, Steve, I have been able to make a difference in this world.</h3>

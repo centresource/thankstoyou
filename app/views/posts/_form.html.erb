@@ -1,0 +1,13 @@
+<%= form_for @post, url: {controller: "posts", action: "create"}, html: {class: "nifty_form"} do |f| %>
+  <label class="modal-close" for="modal-2"></label>
+  <label>Thanks to you, Steve, <%= f.text_field :title, :placeholder => "my life has been forever changed." %></label>
+  <label><%= f.text_area(:body, :size => "60x10", :placeholder => "Tell more about how Steve has been a part of your life story.") %></label>
+
+  <label>Add an Image</label>
+    <%= f.file_field :image %>
+    <%= f.hidden_field :image_cache %>
+
+  <a href="#" class="btn">Add a video</a>
+  <hr/>
+  <%= f.submit "Add Your Thanks" %>
+<% end %>
