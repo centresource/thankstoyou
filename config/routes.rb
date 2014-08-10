@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
   match '/profile' => 'users#profile', via: [:get, :patch], :as => :profile
+  match '/map' => 'users#map', via: [:get], :as => :map
 
   match '/404' => 'errors#not_found'            , :via => [:get, :post]
   match '/422' => 'errors#unprocessable_entity' , :via => [:get, :post]
