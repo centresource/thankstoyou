@@ -20,9 +20,14 @@
         <div class="name"><%= post.user.name %></div>
         <% if post.user.met_when? && post.user.met_how? %>
           <div class="meta">Steve joined my life story in <%= post.user.met_when %> when <%= post.user.met_how %></div>
+        <% elsif post.user == current_user %>
+          <div class="meta"><%= link_to("Add how Steve joined your life story", profile_path) %></div>
         <% end %>
+
         <% if post.user.location? %>
           <div class="location"><%= post.user.location %></div>
+        <% elsif post.user == current_user %>
+          <div class="location"><%= link_to("Add your Location", profile_path) %></div>
         <% end %>
       </div>
     </div>
