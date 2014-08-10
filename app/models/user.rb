@@ -4,6 +4,11 @@ class User < ActiveRecord::Base
 
   has_many :posts
 
+  geocoded_by :location
+  after_validation :geocode
+
+  scope :with_location, -> { where("longitude IS NOT NULL AND latitude IS NOT NULL") }
+
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable
   devise :database_authenticatable, :registerable, :confirmable,

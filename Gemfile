@@ -29,6 +29,9 @@ gem 'omniauth-google-oauth2'
 gem 'mini_magick'
 gem 'carrierwave'
 gem 'cloudinary'
+gem 'underscore-rails'
+gem 'geocoder'
+gem 'gmaps4rails'
 
 group :production do
   gem "heroku_rails_deflate"

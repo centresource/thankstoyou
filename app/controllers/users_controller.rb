@@ -67,6 +67,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def map
+    @users = User.with_location
+    @hash = Gmaps4rails.build_markers(@users) do |user, marker|
+      marker.lat user.latitude
+      marker.lng user.longitude
+      marker.json({:id => user.id })
+    end
+  end
+
   private
     def set_user
       @user = current_user
@@ -79,7 +88,7 @@ class UsersController < ApplicationController
     end
 
     def profile_params
-      accessible = [ :name, :email, :met_when, :met_how ]
+      accessible = [ :name, :email, :met_when, :met_how, :location ]
       params.require(:user).permit(accessible)
     end
 end
