@@ -34,20 +34,20 @@ class ImageUploader < CarrierWave::Uploader::Base
   process :convert => 'jpg'
   process :tags => ['post_picture']
 
-  version :standard do
-    process :resize_to_fill => [100, 150, :north]
-  end
+  # version :standard do
+  #   process :resize_to_fill => [100, 150, :north]
+  # end
 
-  version :thumbnail do
-    resize_to_fit(50, 50)
-  end
+  # version :thumbnail do
+  #   resize_to_fit(50, 50)
+  # end
 
   # Create different versions of your uploaded files:
-  version :simple do
-    process :resize_to_fill => [164, 164, :fill]
-    process :convert => 'jpg'
-    cloudinary_transformation :quality => 80
-  end
+  # version :simple do
+  #   process :resize_to_fill => [164, 164, :fill]
+  #   process :convert => 'jpg'
+  #   cloudinary_transformation :quality => 80
+  # end
 
   # Generate a 100x150 face-detection based thumbnail,
   # round corners with a 20-pixel radius and increase brightness by 30%.
@@ -59,13 +59,13 @@ class ImageUploader < CarrierWave::Uploader::Base
     cloudinary_transformation :width => 300, :height => 200, :crop => :fill, :gravity => :faces
   end
 
-  version :standard do
-    process :resize_to_fill => [100, 150, :north]
-  end
+  # version :standard do
+  #   process :resize_to_fill => [100, 150, :north]
+  # end
 
-  version :thumbnail do
-    resize_to_fit(50, 50)
-  end
+  # version :thumbnail do
+  #   resize_to_fit(50, 50)
+  # end
 
   # def public_id
   #   return model.short_name
