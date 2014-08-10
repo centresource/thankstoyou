@@ -17,7 +17,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'modernizr-rails'
 gem 'normalize-rails'
 gem 'coffee-rails', '~> 4.0.0'
-gem 'turbolinks'
+# gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
@@ -32,6 +32,7 @@ gem 'cloudinary'
 gem 'underscore-rails'
 gem 'geocoder'
 gem 'gmaps4rails'
+gem 'font-awesome-rails'
 
 group :production do
   gem "heroku_rails_deflate"

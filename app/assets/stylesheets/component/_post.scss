@@ -7,14 +7,36 @@ section.post-feed {
       margin: 0 0 0.5em;
       max-width: 600px;
 
-      width: calc(33.3% - 1em);
-      width: -webkit-calc(33.3% - 1em);
+      @include media($mobile-only) {
+        width: calc(100%);
+        width: -webkit-calc(100%);
+        margin: 0;
+      }
+
+      @include media($medium-screen-up) {
+        width: calc(50% - 1em);
+        width: -webkit-calc(50% - 1em);
+      }
+
+      @include media($large-screen-up) {
+        width: calc(33.3% - 1em);
+        width: -webkit-calc(33.3% - 1em);
+      }
     }
 
     .column-width { // Defines column width for Packery
       max-width: 600px;
-      width: calc(33.3% - 0.7em);
-      width: -webkit-calc(33.3% - 0.7em)
+      width: calc(100%);
+      width: -webkit-calc(100%);
+
+      @include media($medium-screen-up) {
+        width: calc(50% - 0.75em);
+        width: -webkit-calc(50% - 0.75em);
+      }
+      @include media($large-screen-up) {
+        width: calc(33.3% - 0.75em);
+        width: -webkit-calc(33.3% - 0.75em)
+      }
     }
 
 }

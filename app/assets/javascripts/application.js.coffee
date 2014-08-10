@@ -14,7 +14,6 @@
 #= require jquery_ujs
 #= require imagesloaded.min
 #= require packery.min
-#= require turbolinks
 #= require underscore
 #= require gmaps/google
 #= require_tree .

@@ -1,81 +1,21 @@
 <header class="navigation">
   <div class="navigation-wrapper">
+    <%= link_to(fa_icon("home").html_safe, root_path, :class => 'logo') %>
     <a href="" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
     <div class="nav">
       <ul id="navigation-menu">
-        <li class="nav-link">
-          <%= link_to('Home', root_path) %>
-        </li>
-        <% if user_signed_in? %>
-          <li class="nav-link">
-            <div class="logo">
-              <img src="<%= current_user.image %>" alt="">
-            </div>
-          </li>
-          <li class="nav-link">
-            <%= link_to(current_user.name, profile_path) %>
-          </li>
-      <% end %>
-
-      <!-- <li class="nav-link"><a href="javascript:void(0)">Products</a></li>
-        <li class="nav-link"><a href="javascript:void(0)">About Us</a></li>
-        <li class="nav-link"><a href="javascript:void(0)">Contact</a></li>
-        <li class="nav-link more"><a href="javascript:void(0)">More</a>
-          <ul class="submenu">
-            <li><a href="javascript:void(0)">Submenu Item</a></li>
-            <li><a href="javascript:void(0)">Another Item</a></li>
-            <li class="more"><a href="javascript:void(0)">Item with submenu</a>
-              <ul class="submenu">
-                <li><a href="javascript:void(0)">Sub-submenu Item</a></li>
-                <li><a href="javascript:void(0)">Another Item</a></li>
-              </ul>
-            </li>
-            <li class="more"><a href="javascript:void(0)">Another submenu</a>
-              <ul class="submenu">
-                <li><a href="javascript:void(0)">Sub-submenu</a></li>
-                <li><a href="javascript:void(0)">An Item</a></li>
-              </ul>
-            </li>
-          </ul>
-        </li> -->
+        <!-- <li class="nav-link"><a href="javascript:void(0)">My Posts</a></li> -->
+        <li class="nav-link"><a href="/map">Map</a></li>
       </ul>
     </div>
-    <div class="navigation-tools">
-      <!-- <div class="search-bar">
-        <div class="search-and-submit">
-          <input type="search" placeholder="Enter Search" />
-          <button type="submit">
-            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/search-icon.png" alt="">
-          </button>
+    <% if user_signed_in? %>
+      <div class="navigation-tools">
+        <div class="user-bar">
+          <img class="profile" src="<%= current_user.image %>" alt="" height="30">
+          <%= link_to("My Profile", profile_path, :class => 'profile-link') %>
         </div>
-      </div> -->
-      <!-- <a href="javascript:void(0)" class="sign-up">Sign Up</a> -->
-
-      <% if !user_signed_in? %>
-      <div class="modal">
-        <label for="modal-1">
-          <div href="javascript:void(0)" class="sign-up">Get Started</div>
-        </label>
-        <input class="modal-state" id="modal-1" type="checkbox" />
-        <div class="modal-window">
-          <div class="modal-inner">
-            <label class="modal-close" for="modal-1"></label>
-            <h2>Sign Up</h2>
-            <p class="intro">Create an account, and add a statement and story about how Steve has affected your life story.</p>
-            <hr/>
-            <p>To create an account / sign in, choose from the services below:</p>
-            <p>
-              <%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter), :class => 'zocial twitter' %>
-              <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook), :class => 'zocial facebook' %>
-              <%= link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2), :class => 'zocial google' %>
-            </p>
-          </div>
-        </div>
-      </div>
-      <% else %>
         <%= link_to("Log out", :destroy_user_session , :class => "sign-up", :method => "delete") %>
-      <% end %>
-
-    </div>
+      </div>
+    <% end %>
   </div>
 </header>

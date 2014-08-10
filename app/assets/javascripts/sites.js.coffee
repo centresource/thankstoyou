@@ -20,7 +20,7 @@ class Tools.Site
       imagesLoaded @$packery, =>
         @$packery.packery()
       @packeryInitialized = true
-    else if !@mobile
+    else
       @$packery.packery(@packeryConfig)
       imagesLoaded @$packery, =>
         @$packery.packery()
