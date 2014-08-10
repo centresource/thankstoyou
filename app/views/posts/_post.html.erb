@@ -18,8 +18,12 @@
       <%= image_tag(post.user.image) %>
       <div class="author-info">
         <div class="name"><%= post.user.name %></div>
-        <div class="meta">Steve joined my life story in <%= post.user.met_when %> when <%= post.user.met_how %></div>
-        <div class="location"><%= post.user.location %></div>
+        <% if post.user.met_when? && post.user.met_how? %>
+          <div class="meta">Steve joined my life story in <%= post.user.met_when %> when <%= post.user.met_how %></div>
+        <% end %>
+        <% if post.user.location? %>
+          <div class="location"><%= post.user.location %></div>
+        <% end %>
       </div>
     </div>
   </footer>
