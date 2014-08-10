@@ -24,8 +24,11 @@
 
     <%= render 'shared/navigation' %>
     <%= render 'shared/flash' %>
-    <%= yield %>
-
+    <section class="content-primary">
+      <div class="content-primary-wrapper">
+        <%= yield %>
+      </div>
+    </section>
     <!--[if IE 8]>
       <%= javascript_include_tag 'ie8' %>
     <![endif]-->

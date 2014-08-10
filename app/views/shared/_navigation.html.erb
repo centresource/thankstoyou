@@ -3,6 +3,9 @@
     <a href="" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
     <div class="nav">
       <ul id="navigation-menu">
+        <li class="nav-link">
+          <%= link_to('Home', root_path) %>
+        </li>
         <% if user_signed_in? %>
           <li class="nav-link">
             <div class="logo">
@@ -10,7 +13,7 @@
             </div>
           </li>
           <li class="nav-link">
-              <%= current_user.name %>
+            <%= link_to(current_user.name, profile_path) %>
           </li>
       <% end %>
 
@@ -66,11 +69,20 @@
               <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook), :class => 'zocial facebook' %>
               <%= link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2), :class => 'zocial google' %>
             </p>
-            <p>Don't have one of these? <a href="#">Create an account manually</a></p>
           </div>
         </div>
       </div>
       <% else %>
+        <ul>
+          <li class="nav-link">
+            <div class="logo">
+              <img src="<%= current_user.image %>" alt="">
+            </div>
+          </li>
+          <li class="nav-link">
+            <%= link_to(current_user.name, profile_path) %>
+          </li>
+        </ul>
         <%= link_to("Log out", :destroy_user_session , :class => "sign-up", :method => "delete") %>
       <% end %>
 

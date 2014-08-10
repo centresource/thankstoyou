@@ -21,11 +21,26 @@
  * _page_name.scss      => Styles for page specific elements.
  * ---------------------------------------------------------------------------
  */
+body {
+  background: url(gradient_squares.png);
+  margin: 0;
+  padding: 0;
+}
+
 
 .header-primary {}
 
 .nav-primary {}
 
-.content-primary {}
+.content-primary {
+  @include outer-container();
+  background: #fff;
+  box-shadow: 0 0 20px rgba(0,0,0,.2);
+
+  .content-primary-wrapper {
+    margin: 0 2em;
+    padding: 2em 0;
+  }
+}
 
 .footer-primary {}
