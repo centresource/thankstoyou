@@ -12,7 +12,18 @@ class PostsController < ApplicationController
     end
   end
 
+  def update
+    @post = Post.find(params[:id])
+    if @post.update(posts_params)
+      redirect_to :root, notice: 'Your post was successfully updated.'
+    end
+  end
+
   def show
+    @post = Post.find(params[:id])
+  end
+
+  def edit
     @post = Post.find(params[:id])
   end
 

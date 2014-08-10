@@ -1,72 +1,29 @@
-<h1>Thanks to you, Steve...</h1>
-<p>Steve has meant so much to so many people in so many different ways. This is a site to collect all the ways that Steve has been a part of other people's life stories.</p>
-
-<hr/>
-<% if user_signed_in? %>
-  <div class="modal">
-    <label for="modal-2">
-      <div class="btn">Add Your Thanks </div>
-    </label>
-    <input class="modal-state" id="modal-2" type="checkbox" />
-    <div class="modal-window">
-      <div class="modal-inner">
-        <label class="modal-close" for="modal-2"></label>
-        <%= render "posts/form" %>
+<section id="home-header">
+  <div id="intro">
+    <h1>Thanks to you, Steve...</h1>
+    <p>Steve has meant so much to so many people in so many different ways. This is a site to collect all the ways that Steve has been a part of other people's life stories.</p>
+  </div>
+  <% if user_signed_in? %>
+    <div class="modal">
+      <label for="modal-2">
+        <div class="btn btn-primary">Add Your Thanks </div>
+      </label>
+      <input class="modal-state" id="modal-2" type="checkbox" />
+      <div class="modal-window">
+        <div class="modal-inner">
+          <label class="modal-close" for="modal-2"></label>
+          <%= render "posts/form", :post_action => 'create' %>
+        </div>
       </div>
     </div>
-  </div>
-<% end %>
-<section>
+  <% end %>
+</section>
 
+<section class="post-feed">
+  <div class="column-width"></div>
+  <div class="gutter-width"></div>
   <% @posts.each do |post| %>
     <%= render "posts/post", :post => post %>
   <% end -%>
 
-  <article>
-    <header>
-      <h3>Thanks to you, Steve, I have been able to make a difference in this world.</h3>
-      <div class="date">July 22, 2014 &bull; 6:24 pm</div>
-    </header>
-    <p>Measures breakthrough insights, livelihoods, fluctuation; expanding community ownership, honesty developing countries vaccines change lives accelerate. Bloomberg collaborative consumption, immunize eradicate underprivileged, minority Jane Jacobs. Gandhi life-expectancy inspiration, solutions insurmountable challenges diversification.</p>
-    <footer>
-      <div class="author">John Smith</div>
-      <div class="meta">Steve became a part of my story in 1977 at Whitman College in Walla Walla, WA</div>
-    </footer>
-  </article>
-
-  <article>
-    <header>
-      <h3>Thanks to you, Steve, I have been able to make a difference in this world.</h3>
-      <div class="date">July 22, 2014 &bull; 6:24 pm</div>
-    </header>
-    <p>Long-term, country, tackling advancement, lasting change; climate change peace metrics, governance political fairness dignity. Education making progress public institutions initiative conflict resolution. UNHCR honor, medical supplies citizenry refugee, Ford Foundation, replicable invest fundraising campaign human potential equality Oxfam nutrition. Synthesize proper resources treatment donate volunteer, carbon rights UNICEF development frontline.</p>
-    <footer>
-      <div class="author">John Smith</div>
-      <div class="meta">Steve became a part of my story in 1977 at Whitman College in Walla Walla, WA</div>
-    </footer>
-  </article>
-
-  <article>
-    <header>
-      <h3>Thanks to you, Steve, I have been able to make a difference in this world.</h3>
-      <div class="date">July 22, 2014 &bull; 6:24 pm</div>
-    </header>
-    <img src="http://placekitten.com/g/400/300" />
-    <p>The ship set ground on the shore of this uncharted desert isle with Gilligan the Skipper too the millionaire and his wife. As long as we live its you and me baby. There ain't nothin' wrong with that.</p>
-    <footer>
-      <div class="author">John Smith</div>
-      <div class="meta">Steve became a part of my story in 1977 at Whitman College in Walla Walla, WA</div>
-    </footer>
-  </article>
-
-  <article>
-    <header>
-      <h3>Thanks to you, Steve, I have been able to make a difference in this world.</h3>
-      <div class="date">July 22, 2014 &bull; 6:24 pm</div>
-    </header>
-    <p>Medecins du Monde; disruptor participatory monitoring leverage experience in the field many voices recognize potential. Social entrepreneurship, social innovation; time of extraordinary change generosity our ambitions health maintain agency. World problem solving think tank, theory of social change celebrate global legitimize vaccine partner. Humanitarian our grantees and partners, social worker research social impact relief strengthen democracy maximize liberal. Reproductive rights Martin Luther King Jr. deep engagement pride enable investment.</p>
-    <footer>
-      <div class="author">John Smith</div>
-      <div class="meta">Steve became a part of my story in 1977 at Whitman College in Walla Walla, WA</div>
-    </footer>
-  </article>
+</section>

@@ -1,17 +1,26 @@
 <article class="post">
-  <header>
-    <h3>Thanks to you, Steve, <%= post.title %></h3>
-    <div class="date"><%= post.created_at.strftime('%B %e, %Y') %> &bull; <%= post.created_at.strftime('%l:%M %P') %></div>
-  </header>
   <% if post.image.url %>
-    <%= image_tag(post.image_url(:faces_thumb)) %>
+    <%= image_tag(post.image_url(:faces), :class => 'post-image') %>
   <% end %>
-  <p><%= post.body %></p>
+  <header>
+    <h3>...<%= post.title %></h3>
+    <div class="date"><%= post.created_at.strftime('%B %e, %Y') %> &bull; <%= post.created_at.strftime('%l:%M %P') %>
+      <% if post.user == current_user -%>
+        &bull; <%= link_to("Edit Post", edit_post_path(post.id)) %>
+      <% end -%>
+    </div>
+  </header>
+  <div class="post-body">
+    <p><%= post.body %></p>
+  </div>
   <footer>
     <div class="author">
       <%= image_tag(post.user.image) %>
-      <%= post.user.name %>
-      <div class="meta">Steve joined my life story in <%= post.user.met_when %> when <%= post.user.met_how %></div>
+      <div class="author-info">
+        <div class="name"><%= post.user.name %></div>
+        <div class="meta">Steve joined my life story in <%= post.user.met_when %> when <%= post.user.met_how %></div>
+        <div class="location"><%= post.user.location %></div>
+      </div>
     </div>
   </footer>
 </article>

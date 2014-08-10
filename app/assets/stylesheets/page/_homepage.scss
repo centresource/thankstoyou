@@ -1,0 +1,23 @@
+#home-header {
+  @include outer-container();
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 2em;
+  padding-bottom: 1em;
+
+  #intro {
+    @include span-columns(8 of 12);
+  }
+
+  .modal {
+    @include span-columns(4 of 12);
+    @include omega();
+
+    .btn {
+      font-size: 1.5em;
+      margin-top: 0.5em;
+      margin-bottom: 0;
+      width: 100%;
+      text-align: center;
+    }
+  }
+}

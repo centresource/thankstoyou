@@ -73,16 +73,6 @@
         </div>
       </div>
       <% else %>
-        <ul>
-          <li class="nav-link">
-            <div class="logo">
-              <img src="<%= current_user.image %>" alt="">
-            </div>
-          </li>
-          <li class="nav-link">
-            <%= link_to(current_user.name, profile_path) %>
-          </li>
-        </ul>
         <%= link_to("Log out", :destroy_user_session , :class => "sign-up", :method => "delete") %>
       <% end %>
 

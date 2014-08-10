@@ -1,3 +1,87 @@
-article.post {
+section.post-feed {
+    .gutter-width { // Defines gutter width for Packery
+      width: 1em;
+    }
 
+    article.post {
+      margin: 0 0 0.5em;
+      max-width: 600px;
+
+      width: calc(33.3% - 1em);
+      width: -webkit-calc(33.3% - 1em);
+    }
+
+    .column-width { // Defines column width for Packery
+      max-width: 600px;
+      width: calc(33.3% - 0.7em);
+      width: -webkit-calc(33.3% - 0.7em)
+    }
+
+}
+
+article.post {
+  // @include span-columns(4 of 12);
+  // @include omega(3n);
+  box-shadow: 0 0 4px rgba(0,0,0,.2);
+  margin-bottom: 1em;
+
+  img.post-image {
+    display: block
+  }
+
+  header {
+    padding: 1em;
+
+    h3 {
+      font-size: 1.2em;
+      line-height: 1.2em;
+    }
+    .date {
+      font-size: 0.8em;
+    }
+  }
+
+  .post-body {
+    color: #666;
+    padding: 0 1em 1em;
+    p {
+      margin-bottom: 0;
+    }
+    p + p {
+      margin-top: 1em;
+    }
+  }
+
+
+  footer {
+    @include linear-gradient(#fafafa, #fff);
+    border-top: #eee 1px solid;
+    padding: 0.5em;
+
+    .author {
+      @include outer-container();
+      img {
+        box-shadow: 0 0 4px rgba(0,0,0,.2);
+        @include span-columns(2 of 12);
+      }
+      .author-info {
+        @include span-columns(10 of 12);
+      }
+      .name {
+        font-weight: bold;
+        line-height: 1em;
+        margin-bottom: 4px;
+      }
+      .meta {
+        color: #666;
+        font-size: 0.8em;
+        line-height: 1.2em;
+      }
+      .location {
+        font-size: 0.8em;
+        font-weight: 600;
+        line-height: 1.6em;
+      }
+    }
+  }
 }
