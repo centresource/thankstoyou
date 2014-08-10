@@ -85,6 +85,5 @@ Rails.application.configure do
     ie8.js
     active_admin.js
     active_admin.css
-    zocial/zocial.css
   )
 end
