@@ -36,6 +36,7 @@ gem 'font-awesome-rails'
 
 group :production do
   gem "heroku_rails_deflate"
+  gem "newrelic_rpm"
 end
 
 group :development do
