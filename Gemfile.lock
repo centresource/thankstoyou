@@ -191,6 +191,7 @@ GEM
       bourbon (>= 3.1)
       sass (~> 3.2.19)
     netrc (0.7.7)
+    newrelic_rpm (3.9.1.236)
     nokogiri (1.6.3.1)
       mini_portile (= 0.6.0)
     normalize-rails (3.0.1)
@@ -411,6 +412,7 @@ DEPENDENCIES
   mini_magick
   modernizr-rails
   neat
+  newrelic_rpm
   normalize-rails
   omniauth
   omniauth-facebook
