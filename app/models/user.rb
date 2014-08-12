@@ -51,9 +51,7 @@ class User < ActiveRecord::Base
         user.skip_confirmation!
         user.save!
       end
-    end
-
-    if !user.image?
+    elsif !user.image?
       user.image = auth.info.image
       user.save!
     end
@@ -66,13 +64,6 @@ class User < ActiveRecord::Base
     user
   end
 
-  def providers
-    self.identities.each do |identity|
-      providers[] = identity.provider
-    end
-    providers
-  end
-
   def email_verified?
     self.email && self.email !~ TEMP_EMAIL_REGEX
   end
@@ -81,12 +72,8 @@ class User < ActiveRecord::Base
     self.identities.find_by_provider(provider).present?
   end
 
-  def identity_by_provider(provider)
-    self.identities.find_by_provider(provider)
-  end
-
   def set_avatar_to_identity(provider)
-    identity = self.identity_by_provider(provider)
+    identity = self.identities.find_by_provider(provider)
     self.image = identity.image
     self.save!
   end

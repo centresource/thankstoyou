@@ -32,7 +32,7 @@
     <h2>Select a profile image:</h2>
 
     <% @user.identities.each do |identity| %>
-      <a href="<%= choose_avatar_url(:provider => identity.provider) %>"><img class="profile" src="<%= @user.identity_by_provider(identity.provider).image %>" alt="" height="50"></a></li>
+      <a href="<%= choose_avatar_url(:provider => identity.provider) %>"><img class="profile" src="<%= identity.image %>" alt="" height="50"></a></li>
     <% end %>
   </div>
 </div>
