@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   TEMP_EMAIL_REGEX = /\Achange@me/
 
   has_many :posts
+  has_many :identities
 
   geocoded_by :location
   after_validation :geocode
@@ -52,6 +53,11 @@ class User < ActiveRecord::Base
       end
     end
 
+    if !user.image?
+      user.image = auth.info.image
+      user.save!
+    end
+
     # Associate the identity with the user if needed
     if identity.user != user
       identity.user = user
@@ -60,7 +66,28 @@ class User < ActiveRecord::Base
     user
   end
 
+  def providers
+    self.identities.each do |identity|
+      providers[] = identity.provider
+    end
+    providers
+  end
+
   def email_verified?
     self.email && self.email !~ TEMP_EMAIL_REGEX
+  end
+
+  def has_provider?(provider)
+    self.identities.find_by_provider(provider).present?
+  end
+
+  def identity_by_provider(provider)
+    self.identities.find_by_provider(provider)
+  end
+
+  def set_avatar_to_identity(provider)
+    identity = self.identity_by_provider(provider)
+    self.image = identity.image
+    self.save!
   end
 end

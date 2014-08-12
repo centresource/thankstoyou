@@ -1,16 +1,38 @@
-<div id="profile-form">
-  <%= form_for current_user, :as => 'user', :url => profile_path(current_user), :html => {role: 'form', class: "nifty_form"} do |f| %>
+<div id="profile">
+  <div id="profile-form">
+    <h2>My Profile</h2>
+    <%= form_for current_user, :as => 'user', :url => profile_path(current_user), :html => {role: 'form', class: "nifty_form"} do |f| %>
 
-    <div id="user-info">
-      <label>Name:</labe>
-      <%= f.text_field :name %>
-    </div>
+      <div id="user-info">
+        <label>Name:</labe>
+        <%= f.text_field :name %>
+      </div>
 
-    <div id="profile-relationship" class="field-wrapper">
-      Steve joined my life story in <%= f.select :met_when, (Date.new(1948).year)..(Date.today.year), :selected => (Date.new(f.object.met_when.to_i).year) %> when <%= f.text_area :met_how, :size => "60x3", :placeholder => "Steve and I worked together in Seattle" %>
-    </div>
+      <div id="profile-relationship" class="field-wrapper">
+        Steve joined my life story in <%= f.select :met_when, (Date.new(1948).year)..(Date.today.year), :selected => (Date.new(f.object.met_when.to_i).year) %> when <%= f.text_area :met_how, :size => "60x3", :placeholder => "Steve and I worked together in Seattle" %>
+      </div>
 
-    <label>Current Hometown:</label> <%= f.text_field :location, :placeholder => "Atlanta, GA" %>
-    <%= f.submit 'Update your Profile', :class => 'btn btn-primary' %>
-  <% end -%>
+      <label>Current Hometown:</label> <%= f.text_field :location, :placeholder => "Atlanta, GA" %>
+      <%= f.submit 'Update your Profile', :class => 'btn btn-primary' %>
+    <% end -%>
+  </div>
+
+  <div id="linked-accounts">
+    <h2>Linked Accounts</h2>
+    <ul class="service-logins">
+      <% PROVIDERS.each do |provider, provider_name| %>
+        <% if @user.has_provider? provider %>
+          <li><div class="zocial connected <%=provider_name.downcase%>">Connected to <%=provider_name %></div></li>
+        <% else %>
+          <li><%= link_to "Connect to #{provider_name}", user_omniauth_authorize_path(provider), :class => "zocial #{provider_name.downcase}" %></li>
+        <% end %>
+      <% end %>
+    </ul>
+
+    <h2>Select a profile image:</h2>
+
+    <% @user.identities.each do |identity| %>
+      <a href="<%= choose_avatar_url(:provider => identity.provider) %>"><img class="profile" src="<%= @user.identity_by_provider(identity.provider).image %>" alt="" height="50"></a></li>
+    <% end %>
+  </div>
 </div>

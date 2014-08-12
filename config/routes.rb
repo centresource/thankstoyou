@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   resources :posts
 
   match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
+  match '/profile/avatar/:provider' => 'users#choose_avatar', via: [:get], :as => :choose_avatar
+
   match '/profile' => 'users#profile', via: [:get, :patch], :as => :profile
   match '/map' => 'users#map', via: [:get], :as => :map
 

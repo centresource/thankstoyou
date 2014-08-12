@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :finish_signup, :profile, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :finish_signup, :profile, :choose_avatar, :destroy]
   # GET /users/:id.:format
   def show
     # authorize! :read, @user
@@ -55,6 +55,12 @@ class UsersController < ApplicationController
     else
       @user = User.find(current_user.id)
     end
+  end
+
+  # POST /users/:id/choose_avatar
+  def choose_avatar
+    @user.set_avatar_to_identity(params[:provider])
+    redirect_to :profile, notice: 'Your profile image was successfully changed.'
   end
 
   # DELETE /users/:id.:format

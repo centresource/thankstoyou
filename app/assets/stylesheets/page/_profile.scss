@@ -1,4 +1,19 @@
+#profile {
+  h2 {
+    border-bottom: 1px solid #999;
+    font-size: 1.2em;
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+  }
+}
+
 #profile-form {
+  margin-bottom: 3em;
+
+  @include media($large-screen-up) {
+    @include span-columns(8 of 12);
+  }
+
   #profile-relationship {
     font-size: 1.1em;
     font-weight: 600;
@@ -11,5 +26,64 @@
     display: inline;
     font-size: 0.9em;
     margin-bottom: .5em;
+  }
+}
+
+#linked-accounts {
+  // @include media($medium-screen-up) {
+  //   @include span-columns(5 of 12);
+  //   @include omega();
+  //   margin-top: 0;
+  // }
+
+  @include media($large-screen-up) {
+    @include span-columns(4 of 12);
+    @include omega();
+  }
+
+  .service-logins {
+    margin-bottom: 2em;
+    li {
+      margin-bottom: 0.5em;
+      a {
+        text-align: left;
+        width: 255px;
+        &:before {
+          width: 20px;
+        }
+      }
+    }
+  }
+
+  .connected {
+    @include linear-gradient(rgba(255,255,255,.1), rgba(255,255,255,.05) 49%, rgba(0,0,0,.05) 51%, rgba(0,0,0,.1));
+    border: 1px solid #CCC;
+    border-color: rgba(0,0,0,.1);
+    cursor: default;
+    text-shadow: none;
+    text-align: left;
+    width: 255px;
+
+
+    &:before {
+      width: 20px;
+    }
+    &:hover {
+      background-color: inherit;
+    }
+  }
+
+  .connected.facebook {
+    background-color: lighten(#4863ae, 40);
+    color: lighten(#4863ae, 10);
+  }
+
+  .connected.google {
+    background-color: lighten(#4e6cf7, 30);
+    color: lighten(#4e6cf7, 10);
+  }
+  .connected.twitter {
+    background-color: lighten(#46c0fb, 30);
+    color: darken(#46c0fb, 0);
   }
 }
