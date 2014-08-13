@@ -34,6 +34,9 @@ class UsersController < ApplicationController
         redirect_to :root, notice: 'Your profile was successfully updated.'
       else
         flash[:error] = "That email already exists. If this is you, please log in with another service and try reconnecting this service."
+        @user = User.find(params[:id])
+        @user.delete
+        redirect_to :root, error: "That email already exists. If this is you, please log in with another service and try reconnecting this service."
         @show_errors = true
       end
     end
