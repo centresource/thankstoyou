@@ -30,7 +30,6 @@ class UsersController < ApplicationController
     # authorize! :update, @user
     if request.patch? && params[:user] #&& params[:user][:email]
       if @user.update(user_params)
-        @user.skip_reconfirmation!
         sign_in(@user, :bypass => true)
         redirect_to :root, notice: 'Your profile was successfully updated.'
       else
@@ -45,7 +44,6 @@ class UsersController < ApplicationController
     # authorize! :update, @user
     if request.patch? && params[:user]
       if @user.update(profile_params)
-        @user.skip_reconfirmation!
         sign_in(@user, :bypass => true)
         redirect_to :root, notice: 'Your profile was successfully updated.'
       else
