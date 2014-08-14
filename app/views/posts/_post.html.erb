@@ -6,7 +6,9 @@
   <% end %>
   <div class="post-wrapper">
     <div class="post-body">
-      <h3>&hellip;<%= post.title %></h3>
+      <% if post.title.present? %>
+        <h3>&hellip;<%= post.title %></h3>
+      <% end %>
 
       <%= simple_format post.body %>
 

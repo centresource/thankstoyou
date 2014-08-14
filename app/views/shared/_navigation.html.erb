@@ -12,7 +12,12 @@
         <% else %>
           <li class="nav-link mobile-only">
             <label for="modal-1">
-              <div href="javascript:void(0)" class="menu-sign-in">Sign In</div>
+              <div href="javascript:void(0)" class="menu-sign-in">Add Your Thanks</div>
+            </label>
+          </li>
+          <li class="nav-link mobile-only">
+            <label for="modal-3">
+              <div href="javascript:void(0)" class="menu-sign-in">Invite Others</div>
             </label>
           </li>
         <% end %>
@@ -27,7 +32,7 @@
         <%= link_to("Log out", :destroy_user_session , :class => "sign-up", :method => "delete") %>
       <% else %>
         <label for="modal-1">
-          <div href="javascript:void(0)" class="sign-in">Sign In</div>
+          <div href="javascript:void(0)" class="sign-in">Add Your Thanks</div>
         </label>
       <% end %>
     </div>

@@ -54,7 +54,18 @@
       </div>
     </div>
     <% end %>
+    <div class="modal">
+      <input class="modal-state" id="modal-3" type="checkbox" />
+      <div class="modal-window">
+        <div class="modal-inner">
+          <label class="modal-close" for="modal-3"></label>
+          <h3>Invite Others</h3>
+          <p>Steve has made an impact on people around the globe. If you know someone that has a good story to tell on how Steve joined their life story, please use the links below to let them know about this site, and encourage them to add their thanks.</p>
 
+          <%= render "shared/invite" %>
+        </div>
+      </div>
+    </div>
     <footer class="footer-primary">
       <div class="credits">
         Made with much love by Chip Hayner and the help of his awesome coworkers at <%= link_to("Centresource Interactive Agency", "http://centresource.com") %>

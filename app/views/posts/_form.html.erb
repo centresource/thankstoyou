@@ -1,5 +1,5 @@
 
-<%= form_for @post, url: {controller: "posts", action: post_action}, html: {class: "nifty_form"} do |f| %>
+<%= form_for @post, url: {controller: "posts", action: post_action}, html: {class: "post-form nifty_form"} do |f| %>
   <label class="modal-close" for="modal-2"></label>
   <label>Thanks to you, Steve, <%= f.text_field :title, :placeholder => "my life has been forever changed." %></label>
   <label><%= f.text_area(:body, :size => "60x10", :placeholder => "Tell more about how Steve has been a part of your life story.") %></label>
@@ -9,7 +9,9 @@
       <label>Replace Image</label>
     <% else %>
       <label>Add an Image</label>
+
     <% end %>
+    <div class="help">Add a photo of Steve, of you, or of something that relates to your note above.</div>
     <div class="form_line">
       <div class="form_controls">
         <span class="status"></span>
