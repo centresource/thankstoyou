@@ -38,7 +38,7 @@
         <div class="date-location">
           Posted on <%= post.created_at.strftime('%b. %e, %Y') %>
           <% if post.user.location? %>
-            in <span class="location"><i class="fa fa-map-marker"></i> <%= post.user.location %></span>
+            in <span class="location"><a href="<%= map_url %>"><i class="fa fa-map-marker"></i> <%= post.user.location %></a></span>
           <% elsif post.user == current_user %>
             in <span class="location"><%= link_to("Add your Location", profile_path) %></span>
           <% end %>

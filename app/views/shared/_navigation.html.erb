@@ -1,11 +1,11 @@
 <header class="navigation">
   <div class="navigation-wrapper">
-    <%= link_to(fa_icon("home").html_safe, root_path, :class => 'logo') %>
+    <%= link_to("<i class='fa fa-home'></i>".html_safe, root_path, :class => 'logo') %>
     <a href="" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
     <div class="nav">
       <ul id="navigation-menu">
         <!-- <li class="nav-link"><a href="javascript:void(0)">My Posts</a></li> -->
-        <li class="nav-link"><a href="/map">Map</a></li>
+        <li class="nav-link"><a href="/map"><i class="fa fa-map-marker"></i> Map</a></li>
         <% if user_signed_in? %>
           <li class="nav-link mobile-only"><%= link_to("My Profile", profile_path) %></li>
           <li class="nav-link mobile-only"><%= link_to("Log out", :destroy_user_session, :method => "delete") %></li>

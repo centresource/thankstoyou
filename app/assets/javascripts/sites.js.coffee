@@ -19,6 +19,9 @@ class Tools.Site
     $(window).load => @buildView()
     $(window).load => @scrollToFixed()
 
+    if window.location.hash == '#thanks'
+      $('#modal-2').prop('checked', true)
+
   buildView: (e, viewStyle) =>
     if @isotopeInitialized
       imagesLoaded @$isotope, =>

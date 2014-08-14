@@ -18,6 +18,7 @@
     <hr/>
     <div class="actions">
       <%= f.submit 'Continue', :class => 'btn btn-primary' %>
+      <div><%= link_to("Cancel Signup", :destroy_user_session , :class => "sign-up", :method => "delete") %></div>
     </div>
   <% end %>
 </div>

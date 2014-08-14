@@ -29,9 +29,12 @@ class UsersController < ApplicationController
   def finish_signup
     # authorize! :update, @user
     if request.patch? && params[:user] #&& params[:user][:email]
-      if @user.update(user_params)
+      if !params[:user][:email].present?
+        flash[:error] = "Email is required to register using Twitter."
+        @show_errors=true
+      elsif @user.update(user_params)
         sign_in(@user, :bypass => true)
-        redirect_to :root, notice: 'Your profile was successfully updated.'
+        redirect_to :root, notice: 'Your profile was successfully updated.', :anchor => 'thanks'
       else
         flash[:error] = "That email already exists. If this is you, please log in with another service and try reconnecting this service."
         @user = User.find(params[:id])
