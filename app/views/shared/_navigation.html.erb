@@ -6,16 +6,30 @@
       <ul id="navigation-menu">
         <!-- <li class="nav-link"><a href="javascript:void(0)">My Posts</a></li> -->
         <li class="nav-link"><a href="/map">Map</a></li>
+        <% if user_signed_in? %>
+          <li class="nav-link mobile-only"><%= link_to("My Profile", profile_path) %></li>
+          <li class="nav-link mobile-only"><%= link_to("Log out", :destroy_user_session, :method => "delete") %></li>
+        <% else %>
+          <li class="nav-link mobile-only">
+            <label for="modal-1">
+              <div href="javascript:void(0)" class="menu-sign-in">Sign In</div>
+            </label>
+          </li>
+        <% end %>
       </ul>
     </div>
-    <% if user_signed_in? %>
-      <div class="navigation-tools">
+    <div class="navigation-tools">
+      <% if user_signed_in? %>
         <div class="user-bar">
           <img class="profile" src="<%= current_user.image %>" alt="" height="30">
           <%= link_to("My Profile", profile_path, :class => 'profile-link') %>
         </div>
         <%= link_to("Log out", :destroy_user_session , :class => "sign-up", :method => "delete") %>
-      </div>
-    <% end %>
+      <% else %>
+        <label for="modal-1">
+          <div href="javascript:void(0)" class="sign-in">Sign In</div>
+        </label>
+      <% end %>
+    </div>
   </div>
 </header>

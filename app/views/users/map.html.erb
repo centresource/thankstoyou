@@ -6,10 +6,95 @@
   <div id="map" style='width: 100%; height: 600px;'></div>
 </div>
 
+<div id="map-share">
+  <div class="blurb"><h2>Steve has made an impact on people's life stories around the world. Invite others to add their thanks.</h2></div>
+
+  <%= render "shared/invite" %>
+</div>
+
 <% content_for :javascript do %>
     <script type="text/javascript">
       handler = Gmaps.build('Google');
-      handler.buildMap({ internal: {id: 'map'}}, function(){
+      mapStyles = [
+  {
+    "featureType": "landscape",
+    "stylers": [
+      { "visibility": "simplified" },
+      { "color": "#000000" },
+      { "lightness": 23 }
+    ]
+  },{
+    "elementType": "labels.text.stroke",
+    "stylers": [
+      { "visibility": "off" }
+    ]
+  },{
+    "elementType": "labels.text.fill",
+    "stylers": [
+      { "color": "#ffffff" },
+      { "lightness": -11 },
+      { "visibility": "simplified" }
+    ]
+  },{
+    "featureType": "road.highway",
+    "stylers": [
+      { "visibility": "off" }
+    ]
+  },{
+    "featureType": "poi",
+    "stylers": [
+      { "visibility": "off" }
+    ]
+  },{
+    "featureType": "administrative.locality",
+    "stylers": [
+      { "visibility": "off" }
+    ]
+  },{
+    "featureType": "administrative.province",
+    "stylers": [
+      { "visibility": "simplified" }
+    ]
+  },{
+    "featureType": "administrative",
+    "elementType": "geometry.fill",
+    "stylers": [
+      { "visibility": "simplified" }
+    ]
+  },{
+    "featureType": "administrative.country",
+    "elementType": "geometry.stroke",
+    "stylers": [
+      { "color": "#808080" },
+      { "lightness": -26 },
+      { "weight": 1.2 }
+    ]
+  },{
+    "featureType": "road",
+    "stylers": [
+      { "visibility": "off" }
+    ]
+  },{
+    "featureType": "administrative",
+    "elementType": "labels.text.stroke",
+    "stylers": [
+      { "visibility": "off" }
+    ]
+  },{
+    "featureType": "water",
+    "elementType": "geometry.fill",
+    "stylers": [
+      { "color": "#808080" }
+    ]
+  }
+
+];
+      handler.buildMap({
+        provider: {
+          styles: mapStyles
+        },
+        internal: {id: 'map'}
+      }, function(){
         var markers = handler.addMarkers(<%=raw @hash.to_json %>);
         handler.bounds.extendWith(markers);
         handler.fitMapToBounds();

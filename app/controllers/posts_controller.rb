@@ -27,6 +27,10 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
+  def get_ajax
+    @posts = Post.all.page(params[:page] || 1).per(PER_PAGE)
+    render layout: false
+  end
 
   private
 

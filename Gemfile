@@ -44,6 +44,7 @@ group :development do
   gem "guard-bundler"
   gem "guard-rspec"
   gem "guard-spork"
+  gem "guard-livereload"
   gem "rb-fsevent", require: false
 end
 

@@ -48,3 +48,7 @@ guard 'spork', :rspec_env => { 'RAILS_ENV' => 'test' } do
   watch('test/test_helper.rb') { :test_unit }
   watch(%r{features/support/}) { :cucumber }
 end
+
+guard :livereload do
+  watch(%r{.+\.(scss|css|js|html?|php|inc|theme)$})
+end

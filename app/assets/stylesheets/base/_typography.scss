@@ -85,3 +85,16 @@ cite {
     content: '\2014 \00A0';
   }
 }
+
+
+// ---------------------------------------
+// Custom
+// ---------------------------------------
+
+%section-header {
+  color: $dark-gray;
+  font-size: 0.8em;
+  letter-spacing: 3px;
+  margin: 2em 0 1em;
+  text-transform: uppercase;
+}

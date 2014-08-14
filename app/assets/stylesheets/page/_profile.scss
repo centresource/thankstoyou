@@ -1,4 +1,8 @@
 #profile {
+  padding: 1em;
+  @include media($medium-screen-up) {
+    padding: 2em;
+  }
   h2 {
     border-bottom: 1px solid #999;
     font-size: 1.2em;

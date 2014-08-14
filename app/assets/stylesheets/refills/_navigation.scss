@@ -12,11 +12,15 @@ header.navigation {
   $navigation-active-link-color: transparentize(white, 0.5);
   $navigation-submenu-padding: 1em;
   $navigation-submenu-width: 12em;
-  $horizontal-bar-mode: $large-screen;
+  $horizontal-bar-mode: $medium-screen;
 
   background-color: $navigation-background;
   border-bottom: 1px solid darken($navigation-background, 10);
-  height: $navigation-height;
+  height: $navigation-height / 1.5;
+  @include media($medium-screen-up) {
+    height: $navigation-height;
+  }
+
   width: 100%;
   z-index: 999;
 
@@ -36,7 +40,11 @@ header.navigation {
     i.fa-home {
       color: #fff;
       font-size: 1.5em;
-      line-height: 60px;
+
+      line-height: $navigation-height / 1.5;
+      @include media($medium-screen-up) {
+        line-height: $navigation-height;
+      }
     }
   }
 
@@ -48,7 +56,10 @@ header.navigation {
     float: right;
     font-family: $sans-serif;
     font-weight: 700;
-    line-height: $navigation-height;
+    line-height: $navigation-height / 1.5;
+    @include media($medium-screen-up) {
+      line-height: $navigation-height;
+    }
     margin: 0;
     padding-right: 1em;
     text-transform: uppercase;
@@ -92,24 +103,27 @@ header.navigation {
   // The nav items
 
   ul li.nav-link {
-    background: $navigation-background;
+    background: transparentize($navigation-background, .3);
     display: block;
-    line-height: $navigation-height;
+    line-height: $navigation-height / 1.2;
     overflow: hidden;
     padding-right: .8em;
     text-align: right;
+    font-weight: 600;
     width: 100%;
     z-index: 9999;
-
     @include media ($horizontal-bar-mode) {
       background: transparent;
       display: inline;
       line-height: $navigation-height;
       text-decoration: none;
       width: auto;
+      &.mobile-only {
+        display: none;
+      }
     }
 
-    a {
+    a, .menu-sign-in {
       color: $navigation-color;
       display: inline-block;
       font-weight: 400;
@@ -246,23 +260,29 @@ header.navigation {
   // Elements on the far right
 
   .navigation-tools {
+    @include media($mobile-only) {
+      display: none;
+    }
     @include clearfix;
     display: block;
     padding-right: $navigation-padding;
-    padding-bottom: $navigation-padding;
     padding-left: $navigation-padding/2;
+    padding-bottom: $navigation-padding/2;
     clear: both;
     background: #505050;
 
-    @include media($large-screen) {
+    @include media($medium-screen-up) {
       background: transparent;
       float: right;
       clear: none;
     }
   }
 
-  .sign-up {
-    margin-top: 1.2em;
+  .sign-up, .sign-in {
+    margin-top: $navigation-padding/2;
+    @include media($medium-screen-up) {
+      margin-top: 1.2em;
+    }
     float: right;
     @include transition (all 0.2s ease-in-out);
     display: inline;
@@ -274,7 +294,7 @@ header.navigation {
     text-transform: uppercase;
     padding: .4em .5em;
 
-    @include media($large-screen) {
+    @include media($medium-screen) {
       padding: .5em 1em;
     }
 
@@ -293,7 +313,10 @@ header.navigation {
     // padding: 0 .6em .85em .6em;
     float: left;
     font-size: .8em;
-    margin-top: 1.2em;
+    margin-top: $navigation-padding/2;
+    @include media($medium-screen-up) {
+      margin-top: 1.2em;
+    }
 
     img.profile {
       float: left

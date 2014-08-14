@@ -1,35 +1,47 @@
-<article class="post">
-  <% if post.image.url %>
-    <%= image_tag(post.image_url(:faces), :class => 'post-image') %>
-  <% end %>
-  <header>
-    <h3>...<%= post.title %></h3>
-    <div class="date"><%= post.created_at.strftime('%B %e, %Y') %> &bull; <%= post.created_at.strftime('%l:%M %P') %>
-      <% if post.user == current_user -%>
-        &bull; <%= link_to("Edit Post", edit_post_path(post.id)) %>
-      <% end -%>
+<article class="post <%= " with-image" if post.image.present? %>">
+  <% if post.image.present? %>
+    <div class="post-image">
+      <%= image_tag(post.image_url(:vert), :class => "post-image-#{post.img_ratio}") %>
     </div>
-  </header>
-  <div class="post-body">
-    <%= simple_format post.body %>
-  </div>
-  <footer>
-    <div class="author">
-      <%= image_tag(post.user.image) %>
+  <% end %>
+  <div class="post-wrapper">
+    <div class="post-body">
+      <h3>&hellip;<%= post.title %></h3>
+
+      <%= simple_format post.body %>
+
+      <div class="post-link">
+        <% if post.user == current_user -%>
+          <%= link_to("Edit Post", edit_post_path(post.id)) %>
+        <% end -%>
+      </div>
+    </div>
+    <footer>
+      <div class="author-image">
+        <%= image_tag(post.user.image) %>
+      </div>
       <div class="author-info">
         <div class="name"><%= post.user.name %></div>
         <% if post.user.met_when? && post.user.met_how? %>
-          <div class="meta">Steve joined my life story in <%= post.user.met_when %> when <%= post.user.met_how %></div>
+          <div class="meta">
+            <label>Steve joined my life story in </label>
+            <span class="meta-year"><%= post.user.met_when %></span> when <%= post.user.met_how %>
+          </div>
         <% elsif post.user == current_user %>
-          <div class="meta"><%= link_to("Add how Steve joined your life story", profile_path) %></div>
+          <div class="meta">
+            <%= link_to("Add how Steve joined your life story", profile_path) %>
+          </div>
         <% end %>
 
-        <% if post.user.location? %>
-          <div class="location"><%= post.user.location %></div>
-        <% elsif post.user == current_user %>
-          <div class="location"><%= link_to("Add your Location", profile_path) %></div>
-        <% end %>
+        <div class="date-location">
+          Posted on <%= post.created_at.strftime('%b. %e, %Y') %>
+          <% if post.user.location? %>
+            in <span class="location"><i class="fa fa-map-marker"></i> <%= post.user.location %></span>
+          <% elsif post.user == current_user %>
+            in <span class="location"><%= link_to("Add your Location", profile_path) %></span>
+          <% end %>
+        </div>
       </div>
-    </div>
-  </footer>
+    </footer>
+  </div>
 </article>

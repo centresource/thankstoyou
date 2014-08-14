@@ -1,5 +1,5 @@
 // Typography
-$sans-serif: $helvetica;
+$sans-serif: Lato, $helvetica;
 $serif: $georgia;
 $base-font-family: $sans-serif;
 $header-font-family: $base-font-family;
@@ -14,9 +14,15 @@ $base-spacing: $base-font-size;
 
 
 // Colors
+$green: #64c29e;
+$dark-gray: #222429;
+$medium-gray: #697681;
+$light-gray: #848789;
+$white: #fff;
+
 $blue: #477DCA;
-$dark-gray: #333;
-$medium-gray: #999;
+
+
 $light-gray: #DDD;
 $light-red: #FBE3E4;
 $light-yellow: #FFF6BF;
@@ -27,7 +33,7 @@ $base-background-color: white;
 
 // Font Colors
 $base-font-color: $dark-gray;
-$base-accent-color: $blue;
+$base-accent-color: $green;
 
 // Link Colors
 $base-link-color: $base-accent-color;

@@ -1,0 +1,3 @@
+<% @posts.each_with_index do |post, index| %>
+  <%= render "posts/post", :post => post, :post_index => index %>
+<% end -%>

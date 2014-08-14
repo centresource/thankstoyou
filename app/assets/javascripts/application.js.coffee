@@ -13,6 +13,8 @@
 #= require jquery
 #= require jquery_ujs
 #= require imagesloaded.min
+#= require isotope.pkgd.min
+#= require jquery-scrolltofixed-min
 #= require packery.min
 #= require cloudinary
 #= require underscore

@@ -21,12 +21,6 @@
     display: none;
   }
 
-  .btn {
-    @include button(simple, $base-background-color);
-    font-size: $base-font-size;
-    margin-bottom: $base-line-height;
-  }
-
   .modal-open {
     overflow: hidden;
   }
@@ -38,7 +32,7 @@
     opacity: 0;
     text-align: left;
     visibility: hidden;
-    z-index: 99999999999;
+    z-index: 999999;
 
     .modal-bg {
       @include position(absolute, 0px 0px 0px 0px);

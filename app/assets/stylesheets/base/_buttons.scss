@@ -1,0 +1,11 @@
+.btn {
+  @extend %button;
+  background: $base-accent-color;
+  border: none;
+  color: $white;
+  cursor: pointer;
+  font-size: 1.2em;
+  font-weight: 400;
+  display: inline-block;
+  padding: 0.8em 2em;
+}

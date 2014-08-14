@@ -1,50 +1,60 @@
 <section id="home-header">
   <div id="intro">
-    <h1>Thanks to you, Steve...</h1>
-    <p>Steve has meant so much to so many people in so many different ways. This is a site to collect all the ways that Steve has been a part of other people's life stories.</p>
-  </div>
-  <% if user_signed_in? %>
-    <div class="modal">
-      <label for="modal-2">
-        <div class="btn btn-primary">Add Your Thanks </div>
-      </label>
-      <input class="modal-state" id="modal-2" type="checkbox" />
-      <div class="modal-window">
-        <div class="modal-inner">
-          <label class="modal-close" for="modal-2"></label>
-          <%= render "posts/form", :post_action => 'create' %>
-        </div>
-      </div>
+    <div id="hero">
+      <%= image_tag('hdr-steve.jpg'); %>
     </div>
-  <% else %>
-    <div class="modal">
-        <label for="modal-1">
-          <div href="javascript:void(0)" class="btn btn-primary">Add Your Thanks</div>
+    <div id="hero-copy">
+      <h1>Thanks to you, <strong>Steve&hellip;</strong></h1>
+    </div>
+  </div>
+  <div id="homepage-about">
+    <!-- <h2>A bit about Steve</h2> -->
+    <div class="blurb">
+      Steve has meant so much to so many people in so many different ways. This is a site to collect all the ways that Steve has been a part of other people's life stories.
+    </div>
+    <% if user_signed_in? %>
+      <div class="modal">
+        <label for="modal-2">
+          <div class="btn btn-primary">Add Your Thanks</div>
         </label>
-        <input class="modal-state" id="modal-1" type="checkbox" />
+        <input class="modal-state" id="modal-2" type="checkbox" />
         <div class="modal-window">
-          <div id="signup-modal" class="modal-inner">
-            <label class="modal-close" for="modal-1"></label>
-            <h2>Sign Up</h2>
-            <p class="intro">Create an account, and add a statement and story about how Steve has affected your life story.</p>
-            <hr/>
-            <p>To create an account / sign in, choose from the services below:</p>
-            <ul class="service-logins">
-              <% PROVIDERS.each do |provider, provider_name| %>
-                <li><%= link_to "Sign in with #{provider_name}", user_omniauth_authorize_path(provider), :class => "zocial #{provider_name.downcase}" %></li>
-              <% end %>
-            </ul>
+          <div class="modal-inner">
+            <label class="modal-close" for="modal-2"></label>
+            <%= render "posts/form", :post_action => 'create' %>
           </div>
         </div>
       </div>
-  <% end %>
+    <% else %>
+      <div class="modal">
+          <label for="modal-1">
+            <div href="javascript:void(0)" class="btn btn-primary">Add Your Thanks</div>
+          </label>
+        </div>
+    <% end %>
+    <div class="modal">
+      <label for="modal-3">
+        <div class="btn btn-primary">Invite Others</div>
+      </label>
+      <input class="modal-state" id="modal-3" type="checkbox" />
+      <div class="modal-window">
+        <div class="modal-inner">
+          <label class="modal-close" for="modal-3"></label>
+          <h3>Invite Others</h3>
+          <p>Steve has made an impact on people around the globe. If you know someone that has a good story to tell on how Steve joined their life story, please use the links below to let them know about this site, and encourage them to add their thanks.</p>
+
+          <%= render "shared/invite" %>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section class="post-feed">
   <div class="column-width"></div>
   <div class="gutter-width"></div>
-  <% @posts.each do |post| %>
-    <%= render "posts/post", :post => post %>
+  <% @posts.each_with_index do |post, index| %>
+    <%= render "posts/post", :post => post, :post_index => index %>
   <% end -%>
-
 </section>
+<a href="javascript:void(0)" id="load-more-posts" data-page="2" data-total-pages="<%= @post_pages %>" class="btn">Load more Posts</a>

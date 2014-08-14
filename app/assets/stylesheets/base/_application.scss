@@ -39,22 +39,26 @@ body {
 
 
   .content-primary-wrapper {
-    margin: 0 2em;
-    padding: 2em 0 2em;
-
-    @include media($large-screen-up) {
-      padding-top: 2em;
-    }
-  }
-}
-
-body.logged-in {
-  .content-primary {
-    padding-top: 3.8em;
+    padding-top: 0;
     @include media($large-screen-up) {
       padding-top: 0;
     }
   }
 }
 
-.footer-primary {}
+body.logged-in {
+  .content-primary {
+    padding-top: 0;
+  }
+}
+
+.footer-primary {
+  @include outer-container();
+  background: $dark-gray;
+  color: $white;
+  .credits {
+    font-size: em(10px);
+    @include pad(1em);
+    text-align: center;
+  }
+}
