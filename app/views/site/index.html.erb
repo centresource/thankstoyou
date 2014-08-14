@@ -57,4 +57,8 @@
     <%= render "posts/post", :post => post, :post_index => index %>
   <% end -%>
 </section>
-<a href="javascript:void(0)" id="load-more-posts" data-page="2" data-total-pages="<%= @post_pages %>" class="btn">Load more Posts</a>
+<% if @post_pages > 1 %>
+  <a href="javascript:void(0)" id="load-more-posts" data-page="2" data-total-pages="<%= @post_pages %>" class="btn">Load more Posts</a>
+<% else %>
+  <a href="javascript:void(0)" id="load-more-posts" data-page="2" data-total-pages="<%= @post_pages %>" class="btn disabled">No more Posts</a>
+<% end %>
