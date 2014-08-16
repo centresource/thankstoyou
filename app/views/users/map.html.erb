@@ -14,7 +14,7 @@
 
 <% content_for :javascript do %>
     <script type="text/javascript">
-      handler = Gmaps.build('Google');
+      handler = Gmaps.build('Google', {markers: { clusterer: undefined  }});
       mapStyles = [
   {
     "featureType": "landscape",
@@ -28,14 +28,16 @@
     "stylers": [
       { "visibility": "off" }
     ]
-  },{
+  },
+  {
     "elementType": "labels.text.fill",
     "stylers": [
       { "color": "#ffffff" },
       { "lightness": -11 },
       { "visibility": "simplified" }
     ]
-  },{
+  },
+  {
     "featureType": "road.highway",
     "stylers": [
       { "visibility": "off" }
@@ -45,23 +47,27 @@
     "stylers": [
       { "visibility": "off" }
     ]
-  },{
+  },
+  {
     "featureType": "administrative.locality",
     "stylers": [
       { "visibility": "off" }
     ]
-  },{
-    "featureType": "administrative.province",
-    "stylers": [
-      { "visibility": "simplified" }
-    ]
-  },{
+  },
+  // {
+  //   "featureType": "administrative.province",
+  //   "stylers": [
+  //     { "visibility": "simplified" }
+  //   ]
+  // },
+  {
     "featureType": "administrative",
     "elementType": "geometry.fill",
     "stylers": [
       { "visibility": "simplified" }
     ]
-  },{
+  },
+  {
     "featureType": "administrative.country",
     "elementType": "geometry.stroke",
     "stylers": [
@@ -69,7 +75,8 @@
       { "lightness": -26 },
       { "weight": 1.2 }
     ]
-  },{
+  },
+  {
     "featureType": "road",
     "stylers": [
       { "visibility": "off" }
@@ -80,7 +87,8 @@
     "stylers": [
       { "visibility": "off" }
     ]
-  },{
+  }
+  ,{
     "featureType": "water",
     "elementType": "geometry.fill",
     "stylers": [
