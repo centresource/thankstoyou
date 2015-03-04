@@ -6,6 +6,7 @@
       <ul id="navigation-menu">
         <!-- <li class="nav-link"><a href="javascript:void(0)">My Posts</a></li> -->
         <li class="nav-link"><a href="/map"><i class="fa fa-map-marker"></i> Map</a></li>
+        <li class="nav-link"><a href="/memorial">Watch</a></li>
         <% if user_signed_in? %>
           <li class="nav-link mobile-only"><%= link_to("My Profile", profile_path) %></li>
           <li class="nav-link mobile-only"><%= link_to("Log out", :destroy_user_session, :method => "delete") %></li>

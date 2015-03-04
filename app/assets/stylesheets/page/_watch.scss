@@ -1,0 +1,43 @@
+section.watch {
+  @include media($medium-screen-up) {
+    @include pad(2em);
+  }
+
+  header {
+    @include pad(2em);
+    @include media($medium-screen-up) {
+      @include pad(0);
+      margin-bottom: 2em;
+    }
+
+    text-align: center;
+    h1 {
+      font-size: 1.5em;
+      margin: 0;
+    }
+    h2 {
+      @extend %section-header;
+      color: $green;
+      font-size: 1.5em;
+      margin: 0 0 0.3em;
+    }
+    h3 {
+      @extend %section-header;
+      color: $medium-gray;
+      font-size: 1em;
+      margin: 0 0 0.3em;
+    }
+  }
+
+  .issuuembed img {
+    top: 20px !important;
+  }
+
+  .thanks {
+    text-align: center;
+    @include pad(2em);
+    @include media($medium-screen-up) {
+      @include pad(1em 0);
+    }
+  }
+}

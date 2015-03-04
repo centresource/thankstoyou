@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   match '/profile' => 'users#profile', via: [:get, :patch], :as => :profile
   match '/map' => 'users#map', via: [:get], :as => :map
+  match '/memorial' => 'site#watch', via: [:get], :as => :watch
 
   match '/404' => 'errors#not_found'            , :via => [:get, :post]
   match '/422' => 'errors#unprocessable_entity' , :via => [:get, :post]

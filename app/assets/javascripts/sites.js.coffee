@@ -19,6 +19,16 @@ class Tools.Site
     $(window).load => @buildView()
     $(window).load => @scrollToFixed()
 
+    if $('section.watch').length
+      @$sectionWidth = $('section.watch').width()
+
+      $(window).load => @formatIssuu()
+      $(document).ready => @formatVideo()
+      $(window).resize =>
+        @$sectionWidth = $('section.watch').width()
+        @formatVideo()
+        @formatIssuu()
+
     if window.location.hash == '#thanks'
       $('#modal-2').prop('checked', true)
 
@@ -59,8 +69,13 @@ class Tools.Site
       if $btn.data('page') > $btn.data('total-pages')
         $btn.text('No more posts').addClass('disabled')
 
-
-
       return
 
+  formatVideo: (e) =>
+    $vidHeight = @$sectionWidth * 9/16
+    $('iframe#video-wrapper').attr('width', @$sectionWidth).attr('height', $vidHeight)
 
+  formatIssuu: (e) =>
+    $issuuHeight = @$sectionWidth / 1.54
+    $('.issuuembed div[style^="height:18"]').hide()
+    $('.issuuembed').attr('style', 'width:'+@$sectionWidth+'px; height:'+$issuuHeight+'px;')
