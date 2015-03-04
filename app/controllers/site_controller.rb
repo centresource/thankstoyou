@@ -5,6 +5,9 @@ class SiteController < ApplicationController
     @post_pages = (Post.count(:all).to_f / PER_PAGE).ceil
   end
 
+  def read
+  end
+
   def watch
   end
 end

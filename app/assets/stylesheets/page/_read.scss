@@ -1,0 +1,56 @@
+section.read {
+  @include outer-container();
+  @include pad(2em);
+  padding-bottom: 1em;
+
+  @include media($large-screen-up) {
+    @include pad(3em);
+    padding-top: 2em;
+  }
+
+  h1 {
+    margin-bottom: em(32, 36);
+  }
+
+  article {
+    margin-bottom: 3em;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    h3.source {
+      @extend %section-header;
+      font-size: 1em;
+      margin: 0 0 0.3em;
+      a {
+        color: $dark-gray;
+      }
+    }
+
+    h2.title {
+      font-size: 1.5em;
+    }
+
+    .meta {
+      font-size: 0.9em;
+      margin-top: 0.3em;
+    }
+
+    blockquote {
+      color: $medium-gray;
+      margin: 1em 0 0;
+      padding-left: 1em;
+    }
+
+
+  }
+
+  .contact-me {
+    @include pad(1em);
+    color: $medium-gray;
+    font-style: italic;
+    text-align: center;
+
+  }
+}
